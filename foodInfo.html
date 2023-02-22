@@ -1,0 +1,42 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>商品详情</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <!-- Place favicon.ico in the root directory -->
+
+  <meta name="theme-color" content="#fafafa">
+  <script src="js/foodInfo.js"></script>
+</head>
+<body onload="FoodGet()">
+
+<div class="container">
+  <div class="login-wrapper" id="board">
+    <div class="header" style="text-align:center">商品详情</div>
+    <link rel="stylesheet" href="css/foodInfo.css">
+    <table class="table6_3">
+      <tr>
+        <th id="ID">序号</th>
+        <th id="Name">名称</th>
+        <th id="Score">价格</th>
+      </tr>
+      <tbody id="container"></tbody>
+    </table>
+    </div>
+  <button class="Save" onclick="ModifyFoods()">保存</button>
+  <button class="Add" onclick="AddFoods()">添加</button>
+  </div>
+
+</div>
+</body>
+
+</html>

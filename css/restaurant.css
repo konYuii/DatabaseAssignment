@@ -1,0 +1,33 @@
+.cart{
+    position: fixed;
+    right: 0px;
+    top:40%;
+    width: 72px;
+    height: 64px;
+}
+.cartCnt{
+    width:24px;
+    height: 24px;
+    border-radius: 12px;
+    background-color: #f00;
+    text-align: center;
+    line-height: 24px;
+    font-size: 12px;
+
+    position: fixed;
+    right: 2%;
+    top:38%;
+}
+.cartAdd{
+    width:24px;
+    height: 24px;
+    border-radius: 12px;
+    background-color: #f00;
+    text-align: center;
+    line-height: 24px;
+    font-size: 12px;
+
+    position: relative;
+    top: 30px;
+    right: -40px;
+}

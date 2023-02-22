@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>首页</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="assets/main/css/bootstrap.css" rel="stylesheet">
+
+  <!-- Add custom CSS here -->
+  <link href="assets/main/css/style.css" rel="stylesheet">
+  <link href="assets/main/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+
+</head>
+
+<body onload="StoreGet()">
+<!-- Side Menu -->
+<a id="menu-toggle" href="#" class="btn btn-primary btn-lg toggle"><i class="fa fa-bars"></i></a>
+<div id="sidebar-wrapper">
+  <ul class="sidebar-nav">
+    <li>
+      <a id="menu-close" href="#" class="btn btn-default btn-lg pull-right toggle">
+        <i class="fa fa-times"></i>
+      </a>
+    </li>
+    <li class="sidebar-brand">
+      <a id="userMenu">掌柜</a>
+      <hr>
+    </li>
+    <li>
+      <a href="#about">店铺数据</a>
+    </li>
+    <li>
+      <a href="#services">服务</a>
+    </li>
+    <li>
+      <a href="#contact">Contact</a>
+    </li>
+  </ul>
+</div>
+<!-- /Side Menu -->
+
+<!-- Full Page Image Header Area -->
+<div id="top" class="header">
+  <div class="vert-text parallax">
+    <h1 class="header-text">欢迎光临</h1>
+    <h3 class="header-text">
+      <em class="header-text">今食烟火，不虚此行</em>
+    </h3><br />
+    <a href="#about" class="btn header-btn">前去主页</a>
+    <br/>
+    <a href="#about"><img src="assets/main/img/direction.png" class="space" alt="Direction"></a>
+  </div>
+</div>
+<!-- /Full Page Image Header Area -->
+
+<!-- Intro -->
+<div id="about">
+  <div class="light-wrapper">
+    <div class="container inner">
+      <div class="row">
+        <div class="text-center">
+          <h2 class="main-title">近日数据</h2>
+          <hr>
+        </div>
+        <div class="divide50"></div>
+        <div class="col-sm-4">
+          <figure><img src="assets/main/img/office.jpg" alt="" style="width: 100%;"></figure>
+        </div>
+        <div id="money" class="col-lg-2" style="width: 600px;height: 330px"></div>
+      </div>
+      <div class="divide50"></div>
+      <div class="row">
+        <div class="col-sm-4">
+          <h4>客人最爱</h4><hr>
+          <p></p>
+          <div class="divide5"></div>
+          <ul class="progress-list" id="favor">
+
+          </ul>
+          <!-- /.progress-list -->
+        </div>
+        <!-- /.col -->
+
+        <div class="col-sm-4">
+        </div>
+        <!-- /.col -->
+        <!-- /.col -->
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+  </div>
+  <!-- /.light-wrapper -->
+</div>
+<!-- /Intro -->
+
+<!-- Services -->
+<div id="services" class="services">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4 text-center">
+        <h2 class="main-title">服务</h2>
+        <hr>
+      </div>
+    </div>
+    <div class="divide50"></div>
+    <div class="row">
+      <div class="col-md-3 text-center">
+        <div class="service-item">
+          <i class="service-icon fa fa-cutlery" onclick="ToFoodsPage()"></i>
+          <h4 class="service-title">修改商品</h4>
+          <p class="service-desc"></p>
+        </div>
+      </div>
+      <div class="col-md-3 text-center">
+        <div class="service-item">
+          <i class="service-icon fa fa-usd" onclick="ToOrderPage()"></i>
+          <h4 class="service-title">查看账单</h4>
+          <p class="service-desc"></p>
+        </div>
+      </div>
+      <div class="col-md-3 text-center">
+        <div class="service-item">
+          <i class="service-icon fa fa-camera" onclick="ToInfoPage()"></i>
+          <h4 class="service-title">修改信息</h4>
+        </div>
+      </div>
+
+      <div class="col-md-3 text-center">
+        <div class="service-item">
+          <i class="service-icon fa fa-plane"></i>
+          <h4 class="service-title">敬请期待</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Services -->
+
+<!-- Callout -->
+<div class="callout">
+  <div class="vert-text">
+    <h1 class="main-title parallax2">食在烟火味，尝尽天下鲜</h1>
+  </div>
+</div>
+<!-- /Callout -->
+
+
+
+<!-- Contact Section -->
+<div id="contact" class="container parallax">
+  <div class="col-md-4 col-md-offset-4 text-center">
+    <h2 class="main-title">Contact us</h2>
+    <hr>
+    <div class="divide50"></div>
+  </div>
+  <!-- Contact Inner -->
+  <div class="inner contact">
+    <!-- Form Area -->
+    <div class="contact-form">
+      <!-- Form -->
+      <form id="contact-us" method="post" action="#">
+        <!-- Left Inputs -->
+        <div class="col-xs-6 col-xs-12 animated" data-animation="fadeInLeft" data-animation-delay="300">
+          <!-- Name -->
+          <input type="text" name="name" id="name" required="required" class="form" placeholder="Name" />
+          <!-- Email -->
+          <input type="email" name="mail" id="mail" required="required" class="form" placeholder="Email" />
+          <!-- Subject -->
+          <input type="text" name="subject" id="subject" required="required" class="form" placeholder="Subject" />
+        </div><!-- End Left Inputs -->
+        <!-- Right Inputs -->
+        <div class="col-xs-6 col-xs-12 animated" data-animation="fadeInRight" data-animation-delay="400">
+          <!-- Message -->
+          <textarea name="message" id="message" class="form textarea"  placeholder="Message"></textarea>
+        </div><!-- End Right Inputs -->
+        <!-- Bottom Submit -->
+        <div class="relative fullwidth col-xs-12">
+          <!-- Send Button -->
+          <button type="submit" id="submit" name="submit" class="form-btn semibold">Send Message</button>
+        </div><!-- End Bottom Submit -->
+        <!-- Clear -->
+        <div class="clear"></div>
+      </form>
+
+      <!-- Your Mail Message -->
+      <div class="mail-message-area">
+        <!-- Message -->
+        <div class="alert gray-bg mail-message not-visible-message">
+          <strong>Thank You !</strong> Your email has been delivered.
+        </div>
+      </div>
+
+    </div><!-- End Contact Form Area -->
+  </div><!-- End Inner -->
+</div><!-- End Contact Section -->
+
+<!-- /Map -->
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+          <li>
+            <i class="fa fa-facebook"></i>
+          </li>
+          <li>
+            <i class="fa fa-twitter"></i>
+          </li>
+          <li>
+            <i class="fa fa-dribbble"></i>
+          </li>
+          <li>
+            <i class="fa fa-pinterest"></i>
+          </li>
+        </ul>
+        <hr>
+        <p>Copyright &copy; <a href="https://themewagon.com/">Themewagon</a>  2014</p>
+        <div class="top-scroll">
+          <a href="#top"><i class="fa fa-arrow-circle-up scroll"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /Footer -->
+
+<!-- JavaScript -->
+<script src="assets/main/js/jquery-1.10.2.js"></script>
+<script src="assets/main/js/bootstrap.js"></script>
+<script type="text/javascript" src="assets/main/js/jquery.parallax-1.1.3.js"></script>
+<script src="js/store.js" ></script>
+<script src="js/echarts.js"></script>
+<script type="text/javascript">
+  // 基于准备好的dom，初始化echarts实例
+  var myChart = echarts.init(document.getElementById('money'));
+  var arr = [];//用来存放最近七天的时间
+
+  function getBeforeDate(n) {
+    var n = n;
+    var d = new Date();
+    var year = d.getFullYear();
+    var mon = d.getMonth() + 1;
+    var day = d.getDate();
+    if(day <= n) {
+      if(mon > 1) {
+        mon = mon - 1;
+      } else {
+        year = year - 1;
+        mon = 12;
+      }
+    }
+    d.setDate(d.getDate() + n); //很重要，+n取得是前一天的时间
+    year = d.getFullYear();
+    mon = d.getMonth() + 1;
+    day = d.getDate();
+    s = (mon < 10 ? ('0' + mon) : mon) + "-" + (day < 10 ? ('0' + day) : day);
+    return s;
+  }
+
+  function EDisplay(data)
+  {
+    for(let i = 0; i > -7; i--) {
+      arr.push(getBeforeDate(i));
+    }
+
+    let values = [];
+    let tmp = Date.parse( new Date().toString() ).toString();
+    tmp = parseInt(tmp);
+    for(let j=6;j>=0;j--)
+    {
+      let maxT = tmp - j * 60*60*24*1000;
+      values.push(data[maxT]);
+    }
+    option = {
+      title: {
+        text: '近7日消费'
+      },
+      tooltip: {
+        trigger: 'axis', //坐标轴触发，主要在柱状图，折线图等会使用类目轴的图表中使用。
+      },
+      xAxis: {
+        type: 'category',//类目轴，适用于离散的类目数据，为该类型时必须通过 data 设置类目数据。
+        name: '日期',//坐标轴名称
+        boundaryGap: false,
+        data: arr.reverse(),
+        nameGap: 7,//坐标轴名称与轴线之间的距离。
+        axisTick: {//是否显示坐标轴刻度。
+          inside: true//坐标轴刻度是否朝内，默认朝外。
+        }
+      },
+      yAxis: {
+        type: 'value',
+        name: '元',
+        splitLine: {
+          show: false//是否显示分隔线。默认数值轴显示，类目轴不显示。
+        },
+        axisTick: {
+          inside: true
+        }
+      },
+      series: [{
+        type: 'line',//线条
+        name: '币值',//系列名称，用于tooltip的显示
+        data: values,
+        symbol: 'circle',//标记的类型：圆圈
+        itemStyle: {
+          normal: {
+            shadowBlur: 50,//文字块的背景阴影长度。
+            shadowColor: 'red',//文字块的背景阴影颜色。
+            color: 'red',//图形的颜色
+            lineStyle: {
+              color: '#4d6dfd',//线的颜色
+              width: 1//线的宽度
+            }
+          }
+        }
+      }],
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+  }
+
+</script>
+
+<!-- Custom JavaScript for the Side Menu and Smooth Scrolling -->
+<script>
+  $("#menu-close").click(function(e) {
+    e.preventDefault();
+    $("#sidebar-wrapper").toggleClass("active");
+  });
+</script>
+<script>
+  $("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#sidebar-wrapper").toggleClass("active");
+  });
+</script>
+<script>
+  $(function() {
+    $('a[href*=#]:not([href=#])').click(function() {
+      if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+        if (target.length) {
+          $('html,body').animate({
+            scrollTop: target.offset().top
+          }, 1000);
+          return false;
+        }
+      }
+    });
+  });
+</script>
+
+<!-- modal -->
+
+<script>
+
+  $('.modal').on('shown.bs.modal', function () {
+    var curModal = this;
+    $('.modal').each(function(){
+      if(this != curModal){
+        $(this).modal('hide');
+      }
+    });
+  });
+
+</script>
+
+</body>
+</html>
