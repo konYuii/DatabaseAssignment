@@ -64,6 +64,7 @@ function Change()
       //200代表正确收到了返回结果
       if (changeRequest.status == 200) {
         alert("修改成功!");
+        window.location.reload();
       } else {
         alert("无法连接服务器！");
       }

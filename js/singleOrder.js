@@ -428,10 +428,10 @@ $.each(datas, function (i, e) {
 }(window));
 var shopcart = new ShopCart();
 let order = [];
-function OrderButtonInit()
+function Init()
 {
     order = jQuery.parseJSON(localStorage.getItem('orderInfo'));
-    let status = window.order.status;
+    let status = order.status;
     if(status == 0)
     {
         if(parseInt(localStorage.getItem('type')) == 0)
@@ -442,7 +442,7 @@ function OrderButtonInit()
             document.getElementById('operate').innerText = "确认接单";
         }
     }
-    if(status == 1)
+    else if(status == 1)
     {
         if(parseInt(localStorage.getItem('type')) == 0)
         {
@@ -452,6 +452,12 @@ function OrderButtonInit()
             document.getElementById('operate').innerText = "等待收货";
         }
     }
+    else
+    {
+        document.getElementById('operate').innerText = "已完成";
+    }
+
+    GetComment();
 }
 function createXMLHttpRequest() {
     if (window.XMLHttpRequest) {
@@ -475,6 +481,7 @@ function ChangeOrderStatus(status)
             //200代表正确收到了返回结果
             if (changeRequest.status == 200) {
                 alert("操作成功！");
+                window.location.reload();
             } else {
                 alert(changeRequest.status+" 无法连接服务器！");
             }
@@ -487,5 +494,84 @@ function ChangeOrderStatus(status)
         "application/x-www-form-urlencoded");
     changeRequest.send("status="+status.toString()+"&id="+order.id);
 }
+function GetComment()
+{
+    let commentRequest = createXMLHttpRequest();
 
+    commentRequest.onreadystatechange = function (){
+        if(commentRequest.readyState == 4){
+            if(commentRequest.status == 200){
+                if(commentRequest.responseText != "null")
+                {
+                    let com = JSON.parse(commentRequest.responseText);
+                    document.getElementById("comment").value = com.comment;
+                    document.getElementById("grade").value = com.grade;
+                    if(com.respond != undefined)
+                    {
+                        document.getElementById("respond").value = com.respond;
+                    }
+
+                }
+                if(parseInt(localStorage.getItem("type")) == 1)
+                {
+                    document.getElementById("grade").onfocus=function(){
+                        this.defaultIndex=this.selectedIndex;
+                    };
+                }
+            }else{
+                alert(commentRequest.status + " 无法连接服务器！");
+            }
+        }
+    }
+
+    let url = "http://localhost:8080/CommentServe";
+    commentRequest.open("POST", url, true);
+    commentRequest.setRequestHeader("Content-Type",
+        "application/x-www-form-urlencoded");
+
+    commentRequest.send("order="+order.id.toString()+"&func=0"+"&type="+localStorage.getItem('type'));
+}
+function SubmitComment()
+{
+    let commentRequest = createXMLHttpRequest();
+
+    commentRequest.onreadystatechange = function (){
+        if(commentRequest.readyState == 4){
+            if(commentRequest.status == 200){
+                alert("已提交！");
+            }else{
+                alert(commentRequest.status + " 无法连接服务器！");
+            }
+        }
+    }
+
+    let url = "http://localhost:8080/CommentServe";
+    commentRequest.open("POST", url, true);
+    commentRequest.setRequestHeader("Content-Type",
+        "application/x-www-form-urlencoded");
+    if(order.status == 2)
+    {
+        if(parseInt(localStorage.getItem("type")) == 0)
+        {
+            let id = order.id;
+            let comment = document.getElementById("comment").value;
+            let grade = document.getElementById("grade").value;
+            commentRequest.send("order="+id.toString()+"&comment="+encodeURI(encodeURI(comment))+"&grade="
+                +grade+"&type="+localStorage.getItem("type")+"&func=1");
+        }
+        else
+        {
+            let id = order.id;
+            let respond = document.getElementById("respond").value;
+            commentRequest.send("order="+id.toString()+"&respond="+encodeURI(encodeURI(respond))+"&type="
+                +localStorage.getItem("type")+"&func=1");
+        }
+    }
+    else
+    {
+        alert("订单还未完成，无法评价哦！");
+    }
+
+
+}
 

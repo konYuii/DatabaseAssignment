@@ -80,7 +80,7 @@ function DataAnalysis()
         if(label == 0)
         {
             let li = document.createElement('li');
-            li.innerHTML = "                            <p>炸鸡 <em>"+ labels[label]*100.0/storeAnalysis.length +"%</em></p>\n" +
+            li.innerHTML = "                            <p>炸鸡 <em>"+ Math.round(labels[label]*100.0/storeAnalysis.length)+"%</em></p>\n" +
                 "                            <div class=\"progress plain\">\n" +
                 "                                <div class=\"bar\" style=\"width: "+ labels[label]*100/storeAnalysis.length +"%;\"></div>\n" +
                 "                            </div>";
@@ -89,7 +89,7 @@ function DataAnalysis()
         else if(label == 1)
         {
             let li = document.createElement('li');
-            li.innerHTML = "                            <p>中餐 <em>"+ labels[label]*100.0/storeAnalysis.length +"%</em></p>\n" +
+            li.innerHTML = "                            <p>中餐 <em>"+ Math.round(labels[label]*100.0/storeAnalysis.length) +"%</em></p>\n" +
                 "                            <div class=\"progress plain\">\n" +
                 "                                <div class=\"bar\" style=\"width: "+ labels[label]*100/storeAnalysis.length +"%;\"></div>\n" +
                 "                            </div>";
@@ -98,7 +98,7 @@ function DataAnalysis()
         else if(label == 2)
         {
             let li = document.createElement('li');
-            li.innerHTML = "                            <p>火锅冒菜 <em>"+ labels[label]*100.0/storeAnalysis.length +"%</em></p>\n" +
+            li.innerHTML = "                            <p>火锅冒菜 <em>"+ Math.round(labels[label]*100.0/storeAnalysis.length) +"%</em></p>\n" +
                 "                            <div class=\"progress plain\">\n" +
                 "                                <div class=\"bar\" style=\"width: "+ labels[label]*100/storeAnalysis.length +"%;\"></div>\n" +
                 "                            </div>";
@@ -107,7 +107,7 @@ function DataAnalysis()
         else if(label == 3)
         {
             let li = document.createElement('li');
-            li.innerHTML = "                            <p>烤肉 <em>"+ labels[label]*100.0/storeAnalysis.length +"%</em></p>\n" +
+            li.innerHTML = "                            <p>烤肉 <em>"+ Math.round(labels[label]*100.0/storeAnalysis.length) +"%</em></p>\n" +
                 "                            <div class=\"progress plain\">\n" +
                 "                                <div class=\"bar\" style=\"width: "+ labels[label]*100/storeAnalysis.length +"%;\"></div>\n" +
                 "                            </div>";

@@ -7,18 +7,69 @@
   <title>订单详情</title>
   <link rel="stylesheet" href="assets/goodcar/css/cart.css">
 
+  <!--[if lte IE 8]><script src="assets/index/js/ie/html5shiv.js"></script><![endif]-->
+  <link rel="stylesheet" href="assets/index/css/main.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="assets/index/css/ie8.css" /><![endif]-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="assets/index/css/ie9.css" /><![endif]-->
+
 </head>
 
-<body onload="setInterval(OrderButtonInit, 500)">
+<body onload="setInterval(Init, 500)">
 
 <div class="header">
   <div class="header-center">
   </div>
 </div>
+<section class="wrapper style4 special container 75%">
+
+  <!-- Content -->
+  <div class="content">
+    <form>
+      <div class="row 50%">
+        <div class="12u">
+          <textarea id="comment" placeholder="小主评论" rows="7"></textarea>
+        </div>
+      </div>
+      <div class="row 50%">
+        <div class="12u">
+          <textarea id="respond" placeholder="掌柜回复" rows="7"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="12u">
+          <select id="grade">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="12u">
+          <ul class="buttons">
+            <li><input type="submit" class="special" value="提交" onclick="SubmitComment()"/></li>
+          </ul>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
 
 
 <script src="assets/goodcar/js/jquery.min.js"></script>
 <script src="js/singleOrder.js"></script>
+<script src="assets/index/js/jquery.min.js"></script>
+<script src="assets/index/js/jquery.dropotron.min.js"></script>
+<script src="assets/index/js/jquery.scrolly.min.js"></script>
+<script src="assets/index/js/jquery.scrollgress.min.js"></script>
+<script src="assets/index/js/skel.min.js"></script>
+<script src="assets/index/js/util.js"></script>
+<!--[if lte IE 8]><script src="assets/index/js/ie/respond.min.js"></script><![endif]-->
+<script src="assets/index/js/main.js"></script>
 
 </body>
 

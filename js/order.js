@@ -71,13 +71,13 @@ function WriteData(store)
         info.push(food);
     }
 
-    singleOrder[storeInfo[store]] = info;
+    singleOrder[storeInfo[store].name] = info;
 
     localStorage.setItem('singleOrder', JSON.stringify(singleOrder));
 }
 function OpenOrder(id, index)
 {
-    localStorage.setItem('orderInfo', JSON.stringify(window.orders[index]));
+    localStorage.setItem('orderInfo', JSON.stringify(orders[index]));
 
     let orderRequest = createXMLHttpRequest();
     orderRequest.onreadystatechange = function (){
