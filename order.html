@@ -48,6 +48,7 @@
 
   <link href="assets/search/css/effects/component.css"  rel="stylesheet" type="text/css" >
 
+
 </head>
 
 
@@ -55,20 +56,26 @@
 <body>
 <!-- header -->
 <header role="header">
-
   <div class="container">
-
     <!-- logo -->
-    <a href="user.html" title="avana LLC"><img src="assets/search/images/logo.png" title="avana LLC" alt="avana LLC"/></a>
+    <a href="#" onclick="ExportOrder()" title="下载订单"><img src="assets/search/images/logo.png" title="下载订单" alt="下载订单"/></a>
     <!-- logo -->
     <div class="commentys-form">
       <div class="col-xs-offset-2 col-sm-2 col-md-6">
-        <textarea name="" cols="" rows="" placeholder="搜索订单编号" id="keyWord"></textarea>
+        <textarea name="" cols="" rows="" placeholder="选择时间范围" id="time"></textarea>
+        <script src="assets/laydate/laydate.js"></script>
+        <script>
+          laydate.render({
+            elem: '#time'
+            //设置开始日期、日期日期的 input 选择器
+            //数组格式为 5.3.0 开始新增，之前版本直接配置 true 或任意分割字符即可
+            ,range: ['#test-startDate-1', '#test-endDate-1']
+          });
+        </script>
       </div>
       <div class="col-xs-offset6 col-sm-1 col-md-1">
         <input name="" type="button" value="搜索" onclick="SearchOrders()">
       </div>
-    </div>
   </div>
 
 </header>
@@ -172,8 +179,8 @@
 <!-- jquery.countdown -->
 
 <script src="assets/search/js/html5shiv.js" type="text/javascript"></script>
+
 <script src="js/order.js"></script>
 
 </body>
-
 </html>

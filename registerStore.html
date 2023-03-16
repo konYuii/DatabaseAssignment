@@ -87,6 +87,16 @@
           </div>
           <div class="row">
             <div class="12u">
+              <div>
+                <img id="img" src="" alt="尚无图片" width="150" height="130" onclick="document.getElementById('file').click();">
+              </div>
+              <div>
+                <input style="display: none" type="file" id="file" accept="image/*" onchange="selectImg(this)"/>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="12u">
               <ul class="buttons" onclick="RegisterStore()">
                 <li><a class="button special">注册</a></li>
               </ul>

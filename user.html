@@ -253,9 +253,8 @@
 <script src="js/echarts.js"></script>
 
 <script type="text/javascript">
-    // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('money'));
-    var arr = [];//用来存放最近七天的时间
+    var arr = [];
 
     function getBeforeDate(n) {
         var n = n;
@@ -271,7 +270,7 @@
                 mon = 12;
             }
         }
-        d.setDate(d.getDate() + n); //很重要，+n取得是前一天的时间
+        d.setDate(d.getDate() + n);
         year = d.getFullYear();
         mon = d.getMonth() + 1;
         day = d.getDate();
@@ -291,7 +290,7 @@
         for(let j=6;j>=0;j--)
         {
             let maxT = tmp - j * 60*60*24*1000;
-            values.push(data[maxT]);
+            values.push(Math.round(data[maxT]));
         }
         option = {
             title: {
@@ -322,7 +321,7 @@
             },
             series: [{
                 type: 'line',//线条
-                name: '币值',//系列名称，用于tooltip的显示
+                name: '消费额',//系列名称，用于tooltip的显示
                 data: values,
                 symbol: 'circle',//标记的类型：圆圈
                 itemStyle: {
